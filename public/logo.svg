@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <title>Word Orbits v2 - Word of Pradipta Logo</title>
+
+  <!-- Three overlapping circles with bold outlines - square composition -->
+  <circle cx="100" cy="60" r="50" fill="none" stroke="#99ffcc" stroke-width="14"/>
+  <circle cx="70" cy="115" r="50" fill="none" stroke="#7bbbff" stroke-width="14"/>
+  <circle cx="130" cy="115" r="50" fill="none" stroke="#ff99cc" stroke-width="14"/>
+
+  <!-- Filled dots at strategic intersections for emphasis -->
+  <circle cx="85" cy="80" r="10" fill="#99ffcc" stroke="#000000" stroke-width="2"/>
+  <circle cx="115" cy="80" r="10" fill="#ff99cc" stroke="#000000" stroke-width="2"/>
+  <circle cx="100" cy="120" r="8" fill="#7bbbff" stroke="#000000" stroke-width="2"/>
+</svg>

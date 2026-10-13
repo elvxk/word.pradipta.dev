@@ -100,7 +100,7 @@ export const generateStructuredData = (post) => {
       name: 'Word of Pradipta',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://word.pradipta.dev/logo.png',
+        url: 'https://word.pradipta.dev/logo.svg',
       },
     },
   }

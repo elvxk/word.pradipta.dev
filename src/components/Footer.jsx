@@ -11,7 +11,10 @@ const Footer = () => {
         <div className="footer-content">
           {/* Brand */}
           <div className="footer-brand">
-            <h3 className="footer-logo">{siteConfig.siteName}</h3>
+            <div className="footer-logo-container">
+              <img src="/logo.svg" alt="Word of Pradipta Logo" className="footer-logo-icon" />
+              <h3 className="footer-logo">{siteConfig.siteName}</h3>
+            </div>
             <p className="footer-description">{siteConfig.siteDescription}</p>
 
             {/* Decorative Elements */}

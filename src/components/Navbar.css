@@ -24,13 +24,30 @@
 
 .navbar-logo {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
+  align-items: center;
+  gap: var(--spacing-12);
   transition: transform 0.3s ease;
 }
 
 .navbar-logo:hover {
   transform: translateY(-2px);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .logo-icon {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
 }
 
 .logo-text {
@@ -39,6 +56,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   position: relative;
+  line-height: 1;
 }
 
 .logo-underline {
@@ -164,6 +182,11 @@
 @media (max-width: 640px) {
   .navbar {
     padding: var(--spacing-16) 0;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .logo-text {
