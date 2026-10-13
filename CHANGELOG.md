@@ -1,5 +1,59 @@
 # Changelog
 
+## [1.0.5] - 2026-10-14
+
+### Added
+- 📧 **Email Sending Functionality**
+  - Contact form integration dengan email service
+  - Form validation dan error handling
+  - Success/error feedback untuk user
+  - Environment variable untuk email configuration
+
+- 🎨 **New Logo & Branding**
+  - Updated logo design untuk website
+  - Improved brand identity
+  - Optimized logo assets
+
+- 🏷️ **Console Watermark**
+  - Added custom console watermark
+  - Brand visibility di developer console
+  - Non-intrusive developer experience
+
+- 📱 **Social Media Integration**
+  - Social media links di footer
+  - Configurable social media URLs
+  - Icon buttons untuk platform links
+  - Enhanced footer design
+
+### Fixed
+- 🐛 **Code Block Copy Button**
+  - Fixed copy button functionality
+  - Improved button state management
+  - Better user feedback on copy action
+  - Enhanced code block processor logic
+
+### Refactored
+- 🔧 **Code Cleanup**
+  - Removed unused code dan dependencies
+  - Cleaned up 11 files
+  - Reduced bundle size dengan ~1KB
+  - Better code organization
+
+### Files Modified
+- Modified: `src/pages/Contact.jsx`, `src/pages/Contact.css`
+- Modified: `src/pages/PostDetail.jsx`
+- Modified: `src/utils/codeBlockProcessor.js`
+- Modified: `src/components/Footer.jsx`
+- Modified: `src/config.js`
+- Added: `src/utils/consoleWatermark.js`
+- Modified: `src/main.jsx`
+- Added: `.env.example` entries
+
+### Impact
+- Bundle: Optimized (-1KB from cleanup)
+- New features: +3KB total
+- Net impact: +2KB
+
 ## [1.0.4] - 2026-10-12
 
 ### Improved
