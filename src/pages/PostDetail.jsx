@@ -52,17 +52,39 @@ const PostDetail = () => {
   useEffect(() => {
     if (!post) return
 
-    // Use requestAnimationFrame for better timing
-    const enhance = () => {
-      requestAnimationFrame(() => {
+    let attempts = 0
+    const maxAttempts = 5
+
+    const tryEnhance = () => {
+      const codeBlocks = document.querySelectorAll('.post-body pre code')
+      console.log(`Attempt ${attempts + 1}: Found ${codeBlocks.length} code blocks`)
+
+      if (codeBlocks.length > 0) {
         enhanceCodeBlocks()
-      })
+        return true
+      }
+      return false
     }
 
-    // Wait for DOM to be fully rendered
-    const timer = setTimeout(enhance, 200)
+    // Try immediately
+    const immediateSuccess = tryEnhance()
 
-    return () => clearTimeout(timer)
+    if (!immediateSuccess) {
+      // If no code blocks found, keep trying with increasing delays
+      const intervals = [100, 300, 500, 1000, 2000]
+      const timers = intervals.map((delay, index) => {
+        return setTimeout(() => {
+          attempts = index + 1
+          if (attempts < maxAttempts) {
+            tryEnhance()
+          }
+        }, delay)
+      })
+
+      return () => {
+        timers.forEach(timer => clearTimeout(timer))
+      }
+    }
   }, [post])
 
   if (loading) {
