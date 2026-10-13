@@ -4,7 +4,7 @@ export const siteConfig = {
   siteName: import.meta.env.VITE_SITE_NAME || 'Word of Pradipta',
   siteDescription: import.meta.env.VITE_SITE_DESCRIPTION || 'Eksplorasi ide, cerita, dan pemikiran dalam kata-kata',
   siteUrl: import.meta.env.VITE_SITE_URL || 'https://word.pradipta.dev',
-  wordpressApiUrl: import.meta.env.VITE_WORDPRESS_API_URL || 'https://word.pradipta.dev/wp-json/wp/v2',
+  wordpressApiUrl: import.meta.env.VITE_WORDPRESS_API_URL || 'https://wordnew.pradipta.dev/wp-json/wp/v2',
   postsPerPage: parseInt(import.meta.env.VITE_POSTS_PER_PAGE) || 6,
 
   // Application features (tetap di config.js)
@@ -16,9 +16,12 @@ export const siteConfig = {
 
   // Social Media (tetap di config.js, bisa dipindah ke env jika berbeda per environment)
   social: {
-    twitter: '',
-    github: '',
-    linkedin: '',
+    github: 'https://github.com/elvxk/',
+    linkedin: 'https://www.linkedin.com/in/elvxk',
+    instagram: 'https://www.instagram.com/elvxk',
+    facebook: 'https://www.facebook.com/elvxk',
+    twitter: 'https://x.com/xelvxkx',
+    website: 'https://pradipta.dev'
   },
 
   // Menu Items (tetap di config.js, ini struktur aplikasi)
