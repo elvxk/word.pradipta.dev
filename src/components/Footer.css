@@ -16,11 +16,24 @@
   position: relative;
 }
 
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-16);
+}
+
+.footer-logo-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
 .footer-logo {
   font-family: var(--font-recoleta);
   font-size: var(--text-heading-sm);
   font-weight: 700;
-  margin-bottom: var(--spacing-16);
+  margin: 0;
 }
 
 .footer-description {
@@ -178,6 +191,11 @@
 
   .footer-decoration {
     display: none;
+  }
+
+  .footer-logo-icon {
+    width: 36px;
+    height: 36px;
   }
 
   .footer-logo {

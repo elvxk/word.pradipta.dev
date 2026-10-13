@@ -34,8 +34,11 @@ const Navbar = () => {
       <div className="container navbar-content">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">{siteConfig.siteName}</span>
-          <div className="logo-underline" />
+          <img src="/logo.svg" alt="Word of Pradipta Logo" className="logo-icon" />
+          <div className="logo-content">
+            <span className="logo-text">{siteConfig.siteName}</span>
+            <div className="logo-underline" />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
