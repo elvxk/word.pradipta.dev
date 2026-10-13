@@ -1,0 +1,11 @@
+{
+  "name": "word-of-pradipta-workspace",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bun run --cwd . dev",
+    "build": "bun run --cwd . build",
+    "preview": "bun run --cwd . preview",
+    "clean": "rm -rf node_modules dist",
+    "reinstall": "rm -rf node_modules bun.lockb && bun install"
+  }
+}

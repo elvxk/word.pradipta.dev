@@ -1,0 +1,132 @@
+.table-of-contents {
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-ink-black);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-24);
+  margin-bottom: var(--spacing-40);
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-20);
+  padding-bottom: var(--spacing-16);
+  border-bottom: 2px solid var(--color-fog);
+}
+
+.toc-header svg {
+  flex-shrink: 0;
+  color: var(--color-plum-ink);
+}
+
+.toc-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink-black);
+}
+
+.toc-nav {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.toc-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-nav::-webkit-scrollbar-track {
+  background: var(--color-cream-paper);
+  border-radius: 3px;
+}
+
+.toc-nav::-webkit-scrollbar-thumb {
+  background: var(--color-mint-splash);
+  border-radius: 3px;
+}
+
+.toc-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sky-pop);
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin-bottom: var(--spacing-8);
+}
+
+.toc-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--spacing-8) var(--spacing-12);
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  font-family: var(--font-lota);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.toc-link:hover {
+  color: var(--color-ink-black);
+  background-color: var(--color-cream-paper);
+  border-left-color: var(--color-mint-splash);
+}
+
+.toc-item.active .toc-link {
+  color: var(--color-plum-ink);
+  font-weight: 600;
+  background-color: rgba(153, 255, 204, 0.1);
+  border-left-color: var(--color-plum-ink);
+}
+
+/* H2 vs H3 indentation */
+.toc-h2 .toc-link {
+  padding-left: var(--spacing-12);
+  font-weight: 600;
+}
+
+.toc-h3 .toc-link {
+  padding-left: var(--spacing-32);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-of-contents {
+    padding: var(--spacing-20);
+  }
+
+  .toc-header h3 {
+    font-size: 16px;
+  }
+
+  .toc-nav {
+    max-height: 300px;
+  }
+
+  .toc-link {
+    font-size: 14px;
+    padding: var(--spacing-8);
+  }
+
+  .toc-h2 .toc-link {
+    padding-left: var(--spacing-8);
+  }
+
+  .toc-h3 .toc-link {
+    padding-left: var(--spacing-24);
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,124 @@
+.skeleton-card {
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-ink-black);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-image {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-paper) 0%,
+    #e8e7e3 50%,
+    var(--color-cream-paper) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-content {
+  padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  flex: 1;
+}
+
+.skeleton-tags {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.skeleton-tag {
+  width: 80px;
+  height: 24px;
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-paper) 0%,
+    #e8e7e3 50%,
+    var(--color-cream-paper) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-pills);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.skeleton-excerpt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  flex: 1;
+}
+
+.skeleton-meta {
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-fog);
+}
+
+.skeleton-line {
+  height: 16px;
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-paper) 0%,
+    #e8e7e3 50%,
+    var(--color-cream-paper) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line-full {
+  width: 100%;
+}
+
+.skeleton-line-long {
+  width: 90%;
+  height: 24px;
+}
+
+.skeleton-line-medium {
+  width: 60%;
+  height: 24px;
+}
+
+.skeleton-line-short {
+  width: 40%;
+}
+
+.skeleton-line-small {
+  width: 120px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skeleton-content {
+    padding: var(--spacing-20);
+    gap: var(--spacing-12);
+  }
+
+  .skeleton-line-long,
+  .skeleton-line-medium {
+    height: 20px;
+  }
+}
