@@ -38,7 +38,6 @@ const PostDetail = () => {
         }
       } catch (err) {
         setError('Gagal memuat artikel')
-        console.error(err)
       } finally {
         setLoading(false)
       }
@@ -57,7 +56,6 @@ const PostDetail = () => {
 
     const tryEnhance = () => {
       const codeBlocks = document.querySelectorAll('.post-body pre code')
-      console.log(`Attempt ${attempts + 1}: Found ${codeBlocks.length} code blocks`)
 
       if (codeBlocks.length > 0) {
         enhanceCodeBlocks()

@@ -83,12 +83,9 @@ export const enhanceCodeBlocks = () => {
 
   const codeBlocks = document.querySelectorAll('.post-body pre code')
 
-  console.log(`Found ${codeBlocks.length} code blocks to enhance`)
-
   codeBlocks.forEach((code, index) => {
     const pre = code.parentElement
     if (!pre || pre.getAttribute('data-enhanced')) {
-      console.log(`Code block ${index} already enhanced or no parent`)
       return
     }
 
@@ -107,8 +104,6 @@ export const enhanceCodeBlocks = () => {
     if (language === 'text' && pre.className) {
       language = extractLanguageFromClass(pre.className)
     }
-
-    console.log(`Enhancing code block ${index} with language: ${language}`)
 
     // Store original content
     const content = code.textContent || ''
@@ -168,7 +163,7 @@ export const enhanceCodeBlocks = () => {
           `
         }, 2000)
       } catch (err) {
-        console.error('Failed to copy:', err)
+        // Silent fail for copy errors
       }
     })
 
@@ -179,7 +174,6 @@ export const enhanceCodeBlocks = () => {
       pre.parentNode.insertBefore(wrapper, pre)
       wrapper.appendChild(header)
       wrapper.appendChild(pre)
-      console.log(`Successfully enhanced code block ${index}`)
     }
   })
 }
