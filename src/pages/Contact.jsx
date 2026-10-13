@@ -10,6 +10,8 @@ const Contact = () => {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -17,24 +19,48 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }))
+    // Clear error when user starts typing
+    if (error) setError(null)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Here you can integrate with WordPress REST API or email service
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
+    try {
+      const response = await fetch(import.meta.env.VITE_CONTACT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
-      setSubmitted(false)
-    }, 3000)
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setSubmitted(true)
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+          })
+          setSubmitted(false)
+        }, 5000)
+      } else {
+        throw new Error(data.message || 'Gagal mengirim pesan')
+      }
+    } catch (err) {
+      console.error('Contact form error:', err)
+      setError(err.message || 'Terjadi kesalahan. Silakan coba lagi.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -101,6 +127,23 @@ const Contact = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
+                {error && (
+                  <motion.div
+                    className="error-message"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      padding: '12px 16px',
+                      marginBottom: '20px',
+                      backgroundColor: '#fee',
+                      border: '1px solid #fcc',
+                      borderRadius: '8px',
+                      color: '#c33',
+                    }}
+                  >
+                    {error}
+                  </motion.div>
+                )}
                 <div className="form-group">
                   <label htmlFor="name">Nama</label>
                   <input
@@ -153,17 +196,23 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" className="submit-button">
-                  <span>Kirim Pesan</span>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <button type="submit" className="submit-button" disabled={loading}>
+                  <span>{loading ? 'Mengirim...' : 'Kirim Pesan'}</span>
+                  {loading ? (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ animation: 'spin 1s linear infinite' }}>
+                      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="2" strokeDasharray="15 35" strokeLinecap="round" />
+                    </svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
                 </button>
               </form>
             )}
