@@ -167,6 +167,39 @@
   transform: translateY(0);
 }
 
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-button:disabled:hover {
+  background-color: var(--color-mint-splash);
+  transform: none;
+}
+
+/* Error Message */
+.error-message {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  color: #c33;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Success Message */
 .success-message {
   display: flex;
